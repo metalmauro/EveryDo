@@ -14,6 +14,7 @@
 		9596E0521DDB674C0070B7E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9596E0501DDB674C0070B7E5 /* Main.storyboard */; };
 		9596E0541DDB674C0070B7E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9596E0531DDB674C0070B7E5 /* Assets.xcassets */; };
 		9596E0571DDB674C0070B7E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9596E0551DDB674C0070B7E5 /* LaunchScreen.storyboard */; };
+		9596E0631DDB87820070B7E5 /* ToDoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9596E0621DDB87820070B7E5 /* ToDoTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		9596E0531DDB674C0070B7E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9596E0561DDB674C0070B7E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9596E0581DDB674C0070B7E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9596E0611DDB87820070B7E5 /* ToDoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoTableViewCell.h; sourceTree = "<group>"; };
+		9596E0621DDB87820070B7E5 /* ToDoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				9596E04D1DDB674C0070B7E5 /* DetailViewController.h */,
 				9596E04E1DDB674C0070B7E5 /* DetailViewController.m */,
 				9596E0501DDB674C0070B7E5 /* Main.storyboard */,
+				9596E0611DDB87820070B7E5 /* ToDoTableViewCell.h */,
+				9596E0621DDB87820070B7E5 /* ToDoTableViewCell.m */,
 				9596E0531DDB674C0070B7E5 /* Assets.xcassets */,
 				9596E0551DDB674C0070B7E5 /* LaunchScreen.storyboard */,
 				9596E0581DDB674C0070B7E5 /* Info.plist */,
@@ -115,6 +120,7 @@
 				TargetAttributes = {
 					9596E0401DDB674C0070B7E5 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = G3KYTESUM8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -157,6 +163,7 @@
 			files = (
 				9596E0491DDB674C0070B7E5 /* AppDelegate.m in Sources */,
 				9596E04C1DDB674C0070B7E5 /* MasterViewController.m in Sources */,
+				9596E0631DDB87820070B7E5 /* ToDoTableViewCell.m in Sources */,
 				9596E0461DDB674C0070B7E5 /* main.m in Sources */,
 				9596E04F1DDB674C0070B7E5 /* DetailViewController.m in Sources */,
 			);
@@ -276,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G3KYTESUM8;
 				INFOPLIST_FILE = EveryDo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kurokakari.EveryDo;
@@ -287,6 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G3KYTESUM8;
 				INFOPLIST_FILE = EveryDo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kurokakari.EveryDo;
@@ -313,6 +322,7 @@
 				9596E05D1DDB674C0070B7E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
