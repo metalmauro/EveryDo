@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9500AF881DDBBCFE005903D2 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9500AF871DDBBCFE005903D2 /* ToDo.m */; };
 		9596E0461DDB674C0070B7E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9596E0451DDB674C0070B7E5 /* main.m */; };
 		9596E0491DDB674C0070B7E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9596E0481DDB674C0070B7E5 /* AppDelegate.m */; };
 		9596E04C1DDB674C0070B7E5 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9596E04B1DDB674C0070B7E5 /* MasterViewController.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9500AF861DDBBCFE005903D2 /* ToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDo.h; sourceTree = "<group>"; };
+		9500AF871DDBBCFE005903D2 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
 		9596E0411DDB674C0070B7E5 /* EveryDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9596E0451DDB674C0070B7E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9596E0471DDB674C0070B7E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,6 +74,8 @@
 				9596E04D1DDB674C0070B7E5 /* DetailViewController.h */,
 				9596E04E1DDB674C0070B7E5 /* DetailViewController.m */,
 				9596E0501DDB674C0070B7E5 /* Main.storyboard */,
+				9500AF861DDBBCFE005903D2 /* ToDo.h */,
+				9500AF871DDBBCFE005903D2 /* ToDo.m */,
 				9596E0611DDB87820070B7E5 /* ToDoTableViewCell.h */,
 				9596E0621DDB87820070B7E5 /* ToDoTableViewCell.m */,
 				9596E0531DDB674C0070B7E5 /* Assets.xcassets */,
@@ -166,6 +171,7 @@
 				9596E0631DDB87820070B7E5 /* ToDoTableViewCell.m in Sources */,
 				9596E0461DDB674C0070B7E5 /* main.m in Sources */,
 				9596E04F1DDB674C0070B7E5 /* DetailViewController.m in Sources */,
+				9500AF881DDBBCFE005903D2 /* ToDo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

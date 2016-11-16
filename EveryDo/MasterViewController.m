@@ -5,14 +5,16 @@
 //  Created by Matthew Mauro on 2016-11-15.
 //  Copyright © 2016 Matthew Mauro. All rights reserved.
 //
+
 #import "ToDoTableViewCell.h"
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 
 @interface MasterViewController ()
-@property NSMutableArray<ToDoTableViewCell *> *priorityOne;
-@property NSMutableArray<ToDoTableViewCell *> *priorityTwo;
-@property NSMutableArray<ToDoTableViewCell *> *priorityThree;
+@property NSMutableArray<ToDo *> *priorityOne;
+@property NSMutableArray<ToDo *> *priorityTwo;
+@property NSMutableArray<ToDo *> *priorityThree;
+@property NSMutableArray<ToDo *> *priorityZero;
 @property NSMutableArray *objects;
 @end
 
@@ -25,21 +27,21 @@
     self.objects = [NSMutableArray new];
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    self.priorityOne= [NSMutableArray new];
-    self.priorityTwo= [NSMutableArray new];
-    self.priorityThree= [NSMutableArray new];
+    self.priorityOne = [NSMutableArray new];
+    self.priorityTwo = [NSMutableArray new];
+    self.priorityThree = [NSMutableArray new];
+    self.priorityZero = [NSMutableArray new];
     
-    
-    ToDoTableViewCell *ToDoTableViewCell1 = [[ToDoTableViewCell alloc]initWithTitle:@"Code Review" description:@"remember to submit projects for code review" priority:2];
-    [self addToPriorityArray:ToDoTableViewCell1];
-    ToDoTableViewCell *ToDoTableViewCell2 = [[ToDoTableViewCell alloc]initWithTitle:@"Groceries" description:@"but food on the way home tonight" priority:1];
-    [self addToPriorityArray:ToDoTableViewCell2];
-    ToDoTableViewCell *ToDoTableViewCell3 = [[ToDoTableViewCell alloc]initWithTitle:@"Landscape" description:@"Mow the Lawn (wtf, I have an apartment)" priority:3];
-    [self addToPriorityArray:ToDoTableViewCell3];
-    ToDoTableViewCell *ToDoTableViewCell4 = [[ToDoTableViewCell alloc]initWithTitle:@"Beer" description:@"Out of beer at home" priority:1];
-    [self addToPriorityArray:ToDoTableViewCell4];
-    ToDoTableViewCell *ToDoTableViewCell5 = [[ToDoTableViewCell alloc]initWithTitle:@"Guitar" description:@"warm up the fingers!" priority:2];
-    [self addToPriorityArray:ToDoTableViewCell5];
+    ToDo *ToDo1 = [[ToDo alloc]initWithTitle:@"Code Review" description:@"remember to submit projects for code review" priority:2];
+    [self addToPriorityArray:ToDo1];
+    ToDo *ToDo2 = [[ToDo alloc]initWithTitle:@"Groceries" description:@"buy food on the way home tonight" priority:1];
+    [self addToPriorityArray:ToDo2];
+    ToDo *ToDo3 = [[ToDo alloc]initWithTitle:@"Landscape" description:@"Mow the Lawn (wtf, I have an apartment)" priority:3];
+    [self addToPriorityArray:ToDo3];
+    ToDo *ToDo4 = [[ToDo alloc]initWithTitle:@"Beer" description:@"Out of beer at home" priority:1];
+    [self addToPriorityArray:ToDo4];
+    ToDo *ToDo5 = [[ToDo alloc]initWithTitle:@"Guitar" description:@"warm up the fingers!" priority:2];
+    [self addToPriorityArray:ToDo5];
     [self.objects addObject:self.priorityOne];
     [self.objects addObject:self.priorityTwo];
     [self.objects addObject:self.priorityThree];
@@ -54,7 +56,7 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)addToPriorityArray:(ToDoTableViewCell*)ToDo
+-(void)addToPriorityArray:(ToDo*)ToDo
 {
     if(ToDo.priorityNumber == 1)
     {
@@ -67,10 +69,18 @@
         [self.priorityThree addObject:ToDo];
     }
 }
-
+-(void)receiveUpdatedToDo:(ToDo*)updated
+{
+    updated = self.updatedToDo;
+    for(int i = 0; i < self.objects.count; i++){
+        if([[self.objects objectAtIndex:i]isEqual:updated]){
+            [self.objects replaceObjectAtIndex:i withObject:updated];
+        }
+    }
+}
 - (void)insertNewObject:(id)sender {
-    ToDoTableViewCell *ToDoTableViewCell1 = [[ToDoTableViewCell alloc]initWithTitle:@"Code Review" description:@"remember to submit projects for code review" priority:2];
-    [self addToPriorityArray:ToDoTableViewCell1];
+    ToDo *ToDoNew1 = [[ToDo alloc]initWithTitle:@"Code Review" description:@"remember to submit projects for code review" priority:2];
+    [self addToPriorityArray:ToDoNew1];
     
 }
 
@@ -80,9 +90,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        ToDo *send = self.objects[indexPath.section][indexPath.row];
         DetailViewController *controller = (DetailViewController *)[segue destinationViewController];
-        [controller setDetailItem:object];
+        [controller setDetailItem:send];
     }
 }
 
@@ -90,8 +100,14 @@
 #pragma mark - Table View
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = @"mafucker";
+    ToDo *new = self.objects[indexPath.section][indexPath.row];
+    cell.textLabel.text = [cell displayToDo:new];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 20;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

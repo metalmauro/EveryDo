@@ -1,5 +1,5 @@
 //
-//  toDo.h
+//  ToDo.h
 //  EveryDo
 //
 //  Created by Matthew Mauro on 2016-11-15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface toDo : NSObject
+@interface ToDo : NSObject
 @property NSString *title;
 @property NSString *toDoDescription;
 @property NSInteger priorityNumber;

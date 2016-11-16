@@ -10,18 +10,18 @@
 
 @implementation ToDoTableViewCell
 
-- (instancetype)initWithTitle:(NSString*)title description:(NSString*)description priority:(NSInteger)priority
-{
-    self = [super init];
-    if (self) {
-        _completedIndicator = NO;
-        _title = title;
-        _toDoDescription = description;
-        _priorityNumber = priority;
-    }
-    return self;
-}
 
+-(NSString*)displayToDo:(ToDo*)todo
+{
+    NSRange range = NSMakeRange(0, todo.title.length);
+    NSRangePointer rangeP = &range;
+    
+    NSAttributedString *check = [[NSAttributedString alloc]initWithString:todo.title];
+    if(todo.completedIndicator == YES){
+        [check attribute:NSStrikethroughStyleAttributeName atIndex:todo.title.length effectiveRange:rangeP];
+    }
+    return [NSString stringWithFormat:@"%@", check];
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
